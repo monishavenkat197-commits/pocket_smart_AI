@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="panel">
+
+    <div class="section-head">
+
+        <div>
+
+            <p class="eyebrow">
+                SAVED DATA
+            </p>
+
+            <h1>
+                Recommendation History
+            </h1>
+
+        </div>
+
+    </div>
+
+
+    {% if rows %}
+
+
+    <div class="table-wrap">
+
+        <table>
+
+            <tr>
+
+                <th>
+                    Category
+                </th>
+
+                <th>
+                    Budget
+                </th>
+
+                <th>
+                    Created
+                </th>
+
+                <th>
+                    Details
+                </th>
+
+            </tr>
+
+
+            {% for row in rows %}
+
+            <tr>
+
+                <td>
+                    {{ row.category|title }}
+                </td>
+
+                <td>
+                    ₹{{ "%.0f"|format(row.budget) }}
+                </td>
+
+                <td>
+                    {{ row.created_at.strftime(
+                        "%d %b %Y %H:%M"
+                    ) }}
+                </td>
+
+                <td>
+
+                    <a
+                        href="/api/recommendations-details/{{ row.id }}"
+                        target="_blank"
+                    >
+                        Open JSON
+                    </a>
+
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+
+    {% else %}
+
+    <p class="muted">
+
+        Your history is empty.
+
+    </p>
+
+    {% endif %}
+
+</section>
+
+{% endblock %}

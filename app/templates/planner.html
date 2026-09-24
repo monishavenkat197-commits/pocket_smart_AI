@@ -1,0 +1,615 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="panel">
+
+    <p class="eyebrow">
+        {{ category|upper }} PLANNER
+    </p>
+
+
+    <h1>
+        {{ category|title }}
+        Budget Planner
+    </h1>
+
+
+    <p class="muted">
+
+        Enter your requirements.
+        The AI will create a
+        budget-aware plan.
+
+    </p>
+
+
+    <form
+        id="plannerForm"
+        enctype="multipart/form-data"
+    >
+
+        <label>
+
+            Budget (₹)
+
+            <input
+                name="budget"
+                type="number"
+                min="1"
+                step="1"
+                required
+            >
+
+        </label>
+
+
+        {% if category == "home" %}
+
+
+        <label>
+
+            Room type
+
+            <select name="room_type">
+
+                <option>
+                    Living Room
+                </option>
+
+                <option>
+                    Bedroom
+                </option>
+
+                <option>
+                    Kitchen
+                </option>
+
+                <option>
+                    Study Room
+                </option>
+
+            </select>
+
+        </label>
+
+
+        <label>
+
+            Style
+
+            <select name="style">
+
+                <option>
+                    Modern
+                </option>
+
+                <option>
+                    Minimal
+                </option>
+
+                <option>
+                    Traditional
+                </option>
+
+                <option>
+                    Boho
+                </option>
+
+            </select>
+
+        </label>
+
+
+        <label>
+
+            Items needed
+
+            <input
+                name="items"
+                placeholder="Example: lights, side table, wall art"
+                required
+            >
+
+        </label>
+
+
+        {% elif category == "party" %}
+
+
+        <label>
+
+            Event type
+
+            <select name="event_type">
+
+                <option>
+                    Birthday
+                </option>
+
+                <option>
+                    Wedding
+                </option>
+
+                <option>
+                    Family Function
+                </option>
+
+                <option>
+                    College Event
+                </option>
+
+                <option>
+                    Corporate Event
+                </option>
+
+            </select>
+
+        </label>
+
+
+        <label>
+
+            Guest count
+
+            <input
+                name="guests"
+                type="number"
+                min="1"
+                required
+            >
+
+        </label>
+
+
+        <label>
+
+            City
+
+            <input
+                name="city"
+                required
+            >
+
+        </label>
+
+
+        <label>
+
+            Preferences
+
+            <textarea
+                name="preferences"
+                placeholder="Vegetarian food, simple decoration..."
+            ></textarea>
+
+        </label>
+
+
+        {% else %}
+
+
+        <label>
+
+            Occasion
+
+            <select name="occasion">
+
+                <option>
+                    Birthday
+                </option>
+
+                <option>
+                    Wedding
+                </option>
+
+                <option>
+                    Festival
+                </option>
+
+                <option>
+                    College Event
+                </option>
+
+                <option>
+                    Party
+                </option>
+
+            </select>
+
+        </label>
+
+
+        <label>
+
+            Outfit style
+
+            <input
+                name="outfit_style"
+                placeholder="Example: traditional saree"
+                required
+            >
+
+        </label>
+
+
+        <label>
+
+            Metal preference
+
+            <select
+                name="metal_preference"
+            >
+
+                <option>
+                    Any
+                </option>
+
+                <option>
+                    Gold tone
+                </option>
+
+                <option>
+                    Silver tone
+                </option>
+
+                <option>
+                    Oxidised
+                </option>
+
+                <option>
+                    Pearl
+                </option>
+
+            </select>
+
+        </label>
+
+
+        <label>
+
+            Notes
+
+            <textarea
+                name="notes"
+                placeholder="Color, neckline, preferred style..."
+            ></textarea>
+
+        </label>
+
+
+        <label>
+
+            Optional outfit image
+
+            <input
+                name="image"
+                type="file"
+                accept="image/png,image/jpeg,image/webp"
+            >
+
+        </label>
+
+
+        {% endif %}
+
+
+        <button
+            id="submitBtn"
+        >
+            Generate Recommendations
+        </button>
+
+
+        <p
+            id="message"
+            class="message"
+        ></p>
+
+    </form>
+
+</div>
+
+
+<div id="result"></div>
+
+
+<script>
+
+const category =
+    "{{ category }}";
+
+
+document
+    .getElementById("plannerForm")
+    .addEventListener(
+        "submit",
+        async (e) => {
+
+            e.preventDefault();
+
+            const btn =
+                document.getElementById(
+                    "submitBtn"
+                );
+
+            const msg =
+                document.getElementById(
+                    "message"
+                );
+
+            btn.disabled = true;
+
+            btn.textContent =
+                "Generating...";
+
+            msg.textContent = "";
+
+
+            const form =
+                new FormData(e.target);
+
+
+            let url =
+                "/api/generate-" +
+                category;
+
+
+            let options = {
+
+                method: "POST",
+
+                body: form
+            };
+
+
+            if (category !== "jewelry") {
+
+                const obj =
+                    Object.fromEntries(form);
+
+
+                if (category === "home") {
+
+                    obj.budget =
+                        Number(obj.budget);
+
+                }
+
+
+                if (category === "party") {
+
+                    obj.budget =
+                        Number(obj.budget);
+
+                    obj.guests =
+                        Number(obj.guests);
+
+                }
+
+
+                options = {
+
+                    method: "POST",
+
+                    headers: {
+
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body:
+                        JSON.stringify(obj)
+                };
+
+            }
+
+
+            const res =
+                await fetch(
+                    url,
+                    options
+                );
+
+
+            const data =
+                await res.json();
+
+
+            btn.disabled = false;
+
+            btn.textContent =
+                "Generate Recommendations";
+
+
+            if (!res.ok) {
+
+                msg.textContent =
+                    data.detail ||
+                    "Something went wrong.";
+
+                return;
+            }
+
+
+            renderResult(data);
+        }
+    );
+
+
+function renderResult(data) {
+
+    const items =
+        data.recommendations
+
+        .map(
+            (x) => `
+
+            <article class="result-card">
+
+                <h3>
+                    ${escapeHtml(x.title)}
+                </h3>
+
+                <p>
+                    ${escapeHtml(
+                        x.description
+                    )}
+                </p>
+
+                <strong>
+                    ₹${Number(
+                        x.estimated_price
+                    ).toLocaleString("en-IN")}
+                </strong>
+
+                <p class="muted">
+
+                    ${escapeHtml(
+                        x.platform
+                    )}
+
+                    ·
+
+                    ${escapeHtml(
+                        x.reason
+                    )}
+
+                </p>
+
+                <a
+                    target="_blank"
+                    rel="noopener"
+                    href="${x.url}"
+                >
+                    Compare on platform →
+                </a>
+
+            </article>
+            `
+        )
+
+        .join("");
+
+
+    const allocation =
+
+        Object.entries(
+            data.allocation
+        )
+
+        .map(
+            ([key, value]) => `
+
+            <span class="pill">
+
+                ${escapeHtml(key)}:
+
+                ₹${Number(
+                    value
+                ).toLocaleString("en-IN")}
+
+            </span>
+
+            `
+        )
+
+        .join("");
+
+
+    document
+        .getElementById("result")
+        .innerHTML = `
+
+        <section class="panel">
+
+            <p class="eyebrow">
+                RESULT
+            </p>
+
+            <h2>
+                ${escapeHtml(
+                    data.summary
+                )}
+            </h2>
+
+
+            <div class="pills">
+
+                ${allocation}
+
+            </div>
+
+
+            <div class="grid two">
+
+                ${items}
+
+            </div>
+
+
+            <h3>
+                Tips
+            </h3>
+
+
+            <ul>
+
+                ${data.tips
+                    .map(
+                        tip =>
+                            `<li>
+                                ${escapeHtml(tip)}
+                            </li>`
+                    )
+                    .join("")
+                }
+
+            </ul>
+
+
+            <p class="notice">
+
+                ${escapeHtml(
+                    data.disclaimer
+                )}
+
+                Mode:
+
+                ${escapeHtml(
+                    data.source_mode
+                )}
+
+            </p>
+
+        </section>
+
+        `;
+}
+
+
+function escapeHtml(value) {
+
+    return String(value)
+
+        .replace(
+            /[&<>"']/g,
+            character => ({
+
+                "&": "&amp;",
+
+                "<": "&lt;",
+
+                ">": "&gt;",
+
+                '"': "&quot;",
+
+                "'": "&#039;"
+
+            })[character]
+        );
+}
+
+</script>
+
+{% endblock %}

@@ -1,0 +1,163 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="hero">
+
+    <div>
+
+        <p class="eyebrow">
+            SMART BUDGET ASSISTANT
+        </p>
+
+        <h1>
+            Plan smarter.
+            Spend with confidence.
+        </h1>
+
+        <p>
+
+            Hi {{ user.name }}!
+
+            Choose a planner and get
+            budget-aware recommendations
+            for everyday needs.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<div class="grid three">
+
+
+    <a
+        class="feature"
+        href="/planner/home"
+    >
+
+        <h2>
+            🏠 Home Interior
+        </h2>
+
+        <p>
+            Furniture, lighting,
+            decor and storage.
+        </p>
+
+    </a>
+
+
+    <a
+        class="feature"
+        href="/planner/party"
+    >
+
+        <h2>
+            🎉 Party Planner
+        </h2>
+
+        <p>
+            Food, venue and
+            decoration planning.
+        </p>
+
+    </a>
+
+
+    <a
+        class="feature"
+        href="/planner/jewelry"
+    >
+
+        <h2>
+            💎 Jewelry
+        </h2>
+
+        <p>
+            Occasion and outfit-based
+            suggestions.
+        </p>
+
+    </a>
+
+</div>
+
+
+<section class="panel">
+
+    <div class="section-head">
+
+        <h2>
+            Recent recommendations
+        </h2>
+
+        <a href="/history">
+            View all
+        </a>
+
+    </div>
+
+
+    {% if recent %}
+
+    <div class="table-wrap">
+
+        <table>
+
+            <tr>
+
+                <th>
+                    Category
+                </th>
+
+                <th>
+                    Budget
+                </th>
+
+                <th>
+                    Date
+                </th>
+
+            </tr>
+
+
+            {% for row in recent %}
+
+            <tr>
+
+                <td>
+                    {{ row.category|title }}
+                </td>
+
+                <td>
+                    ₹{{ "%.0f"|format(row.budget) }}
+                </td>
+
+                <td>
+                    {{ row.created_at.strftime(
+                        "%d %b %Y %H:%M"
+                    ) }}
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+    {% else %}
+
+    <p class="muted">
+        No recommendations yet.
+    </p>
+
+    {% endif %}
+
+</section>
+
+{% endblock %}

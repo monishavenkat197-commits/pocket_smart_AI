@@ -1,66 +1,85 @@
-Phase 1 – Brainstorming & Ideation
+# Phase 2 – Requirement Analysis
 
-1. Problem Identification
+## 1. Functional Requirements
 
-Managing a budget and selecting suitable products or services can be difficult for users. Users may not know how to divide their available budget or what options are suitable for their requirements.
+The PocketSmart AI application should provide the following functions:
 
-PocketSmart AI aims to provide a simple application that helps users plan their budget and receive suitable recommendations based on their requirements.
+- User registration and login
+- User authentication
+- Dashboard access
+- Home Interior Planner
+- Party Planner
+- Jewelry Planner
+- Budget-based recommendations
+- Budget allocation
+- Recommendation history
+- AI-based recommendation support
+- Logout functionality
 
-2. Brainstorming
+## 2. Home Interior Planner Requirements
 
-During the brainstorming stage, different ideas were considered for developing an AI-based application.
+The user should be able to enter:
 
-The following ideas were discussed:
+- Budget
+- Room type
+- Interior style
+- Required items
+- Additional requirements
 
-- Personal Budget Planner
-- Home Interior Recommendation System
-- Party Planning Assistant
-- Jewelry Recommendation Assistant
-- AI-based Shopping Recommendation System
+The system should generate suitable recommendations and estimated budget allocation.
 
-After discussing the ideas, a combined solution was selected.
+## 3. Party Planner Requirements
 
-3. Selected Project Idea
+The user should be able to enter:
 
-The selected idea is PocketSmart AI – Smart Budget & Recommendation Assistant.
+- Total budget
+- Event type
+- Number of guests
+- City
+- Party requirements
+- Additional requirements
 
-PocketSmart AI is a web-based application that helps users plan their budget and get recommendations according to their requirements.
+The system should generate recommendations for food, decoration, venue and other expenses.
 
-The application provides three main planning areas:
+## 4. Jewelry Planner Requirements
 
-1. Home Interior Planner
-2. Party Planner
-3. Jewelry Planner
+The user should be able to enter:
 
-4. Project Objective
+- Budget
+- Occasion
+- Outfit style
+- Metal preference
+- Jewelry style
 
-The main objectives of PocketSmart AI are:
+The system should provide suitable jewelry recommendations within the given budget.
 
-- To help users plan their budget easily.
-- To provide suitable recommendations based on user requirements.
-- To provide budget allocation for different categories.
-- To make planning simple and user-friendly.
-- To store previous recommendations for future reference.
+## 5. Non-Functional Requirements
 
-5. Target Users
+- The application should be easy to use.
+- The application should provide quick responses.
+- User data should be handled securely.
+- The application should work through a web browser.
+- The system should provide clear and understandable recommendations.
 
-The application can be useful for:
+## 6. Software Requirements
 
-- Students
-- Individuals
-- Families
-- Users planning parties or events
-- Users planning home decoration
-- Users looking for jewelry within a specific budget
+- Python
+- FastAPI
+- SQLAlchemy
+- SQLite
+- HTML
+- CSS
+- JavaScript
+- Gemini AI API
+- Visual Studio Code
 
-6. Expected Outcome
+## 7. Hardware Requirements
 
-The expected outcome is a simple web application that allows users to enter their requirements and budget and receive suitable recommendations.
+- Computer or laptop
+- Minimum 4 GB RAM
+- Internet connection
+- Modern web browser
 
-The application also allows users to view their previously generated recommendations through the History section.
+## 8. Expected Outcome
 
-7. Final Idea
-
-PocketSmart AI – Smart Budget & Recommendation Assistant
-
-The project combines budget planning and recommendation features into one simple application.
+The system should help users plan their budget and receive suitable recommendations for Home Interior, Party Planning and Jewelry based on their requirements.

@@ -1,66 +1,91 @@
-Phase 1 – Brainstorming & Ideation
+# Phase 4 – Project Planning
+
+## 1. Project Objective
+
+The objective of PocketSmart AI is to develop a web-based application that helps users plan their budget and receive suitable recommendations based on their requirements.
+
+## 2. Development Plan
+
+The project was planned and developed in the following stages:
 
 1. Problem Identification
+2. Brainstorming and Ideation
+3. Requirement Analysis
+4. Project Design
+5. Project Planning
+6. Project Development
+7. Project Testing
+8. Project Documentation
+9. Project Demonstration
 
-Managing a budget and selecting suitable products or services can be difficult for users. Users may not know how to divide their available budget or what options are suitable for their requirements.
+## 3. Technology Plan
 
-PocketSmart AI aims to provide a simple application that helps users plan their budget and receive suitable recommendations based on their requirements.
+The following technologies were selected for the project:
 
-2. Brainstorming
+- Python – Backend programming
+- FastAPI – Web framework
+- HTML – Web page structure
+- CSS – User interface styling
+- JavaScript – Frontend interactions
+- SQLite – Database
+- SQLAlchemy – Database management
+- Gemini AI – AI-based recommendations
+- GitHub – Source code management
+- Visual Studio Code – Development environment
 
-During the brainstorming stage, different ideas were considered for developing an AI-based application.
+## 4. Feature Planning
 
-The following ideas were discussed:
+The main features planned for the application are:
 
-- Personal Budget Planner
-- Home Interior Recommendation System
-- Party Planning Assistant
-- Jewelry Recommendation Assistant
-- AI-based Shopping Recommendation System
+- User Registration
+- User Login
+- Dashboard
+- Home Interior Planner
+- Party Planner
+- Jewelry Planner
+- Budget Allocation
+- AI Recommendations
+- Recommendation History
+- Logout
 
-After discussing the ideas, a combined solution was selected.
+## 5. Development Tasks
 
-3. Selected Project Idea
+### Task 1 – Authentication
 
-The selected idea is PocketSmart AI – Smart Budget & Recommendation Assistant.
+Develop user registration, login and logout functionality.
 
-PocketSmart AI is a web-based application that helps users plan their budget and get recommendations according to their requirements.
+### Task 2 – Dashboard
 
-The application provides three main planning areas:
+Create a dashboard to provide access to the different planners.
 
-1. Home Interior Planner
-2. Party Planner
-3. Jewelry Planner
+### Task 3 – Home Interior Planner
 
-4. Project Objective
+Develop budget-based home interior recommendations.
 
-The main objectives of PocketSmart AI are:
+### Task 4 – Party Planner
 
-- To help users plan their budget easily.
-- To provide suitable recommendations based on user requirements.
-- To provide budget allocation for different categories.
-- To make planning simple and user-friendly.
-- To store previous recommendations for future reference.
+Develop party budget planning and recommendations.
 
-5. Target Users
+### Task 5 – Jewelry Planner
 
-The application can be useful for:
+Develop jewelry recommendations based on budget and preferences.
 
-- Students
-- Individuals
-- Families
-- Users planning parties or events
-- Users planning home decoration
-- Users looking for jewelry within a specific budget
+### Task 6 – History
 
-6. Expected Outcome
+Store and display previously generated recommendations.
 
-The expected outcome is a simple web application that allows users to enter their requirements and budget and receive suitable recommendations.
+### Task 7 – Testing
 
-The application also allows users to view their previously generated recommendations through the History section.
+Test the application features and fix errors.
 
-7. Final Idea
+### Task 8 – Documentation
 
-PocketSmart AI – Smart Budget & Recommendation Assistant
+Prepare project documentation and phase-wise project files.
 
-The project combines budget planning and recommendation features into one simple application.
+### Task 9 – Demonstration
+
+Prepare and record the final project demonstration.
+
+## 6. Expected Result
+
+The completed PocketSmart AI application should allow users to enter their requirements, generate suitable recommendations, view budget allocation and access their previous recommendations through the History section.

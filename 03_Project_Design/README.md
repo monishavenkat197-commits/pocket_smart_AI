@@ -1,66 +1,79 @@
-Phase 1 – Brainstorming & Ideation
+# Phase 3 – Project Design
 
-1. Problem Identification
+## 1. System Architecture
 
-Managing a budget and selecting suitable products or services can be difficult for users. Users may not know how to divide their available budget or what options are suitable for their requirements.
+PocketSmart AI is designed as a web-based application.
 
-PocketSmart AI aims to provide a simple application that helps users plan their budget and receive suitable recommendations based on their requirements.
+The system consists of the following main layers:
 
-2. Brainstorming
+- Frontend – HTML, CSS and JavaScript
+- Backend – Python FastAPI
+- Database – SQLite with SQLAlchemy
+- AI Service – Gemini AI API
+- Recommendation Services – Budget and catalog based recommendation logic
 
-During the brainstorming stage, different ideas were considered for developing an AI-based application.
+## 2. Main Modules
 
-The following ideas were discussed:
+The application contains the following modules:
 
-- Personal Budget Planner
-- Home Interior Recommendation System
-- Party Planning Assistant
-- Jewelry Recommendation Assistant
-- AI-based Shopping Recommendation System
+1. User Authentication
+2. Dashboard
+3. Home Interior Planner
+4. Party Planner
+5. Jewelry Planner
+6. Recommendation System
+7. Budget Allocation
+8. History Management
 
-After discussing the ideas, a combined solution was selected.
+## 3. Application Workflow
 
-3. Selected Project Idea
+The basic workflow is:
 
-The selected idea is PocketSmart AI – Smart Budget & Recommendation Assistant.
+User Registration/Login
+        ↓
+Dashboard
+        ↓
+Select Planner
+        ↓
+Enter Requirements
+        ↓
+Generate Recommendations
+        ↓
+Display Budget Allocation
+        ↓
+Save Recommendation
+        ↓
+View History
 
-PocketSmart AI is a web-based application that helps users plan their budget and get recommendations according to their requirements.
+## 4. Home Interior Design
 
-The application provides three main planning areas:
+The Home Interior Planner accepts the user's budget, room type, style and required items.
 
-1. Home Interior Planner
-2. Party Planner
-3. Jewelry Planner
+The system processes these requirements and generates suitable products, estimated prices and budget allocation.
 
-4. Project Objective
+## 5. Party Planner Design
 
-The main objectives of PocketSmart AI are:
+The Party Planner accepts the budget, event type, number of guests, city and party requirements.
 
-- To help users plan their budget easily.
-- To provide suitable recommendations based on user requirements.
-- To provide budget allocation for different categories.
-- To make planning simple and user-friendly.
-- To store previous recommendations for future reference.
+The system generates recommendations for catering, decoration, venue and other expenses.
 
-5. Target Users
+## 6. Jewelry Planner Design
 
-The application can be useful for:
+The Jewelry Planner accepts the budget, occasion, outfit style, metal preference and jewelry style.
 
-- Students
-- Individuals
-- Families
-- Users planning parties or events
-- Users planning home decoration
-- Users looking for jewelry within a specific budget
+The system generates suitable jewelry recommendations according to the user's requirements and budget.
 
-6. Expected Outcome
+## 7. Database Design
 
-The expected outcome is a simple web application that allows users to enter their requirements and budget and receive suitable recommendations.
+The application uses SQLite for storing application data.
 
-The application also allows users to view their previously generated recommendations through the History section.
+The database stores:
 
-7. Final Idea
+- User information
+- Recommendation history
+- Planner details
+- Generated recommendation details
 
-PocketSmart AI – Smart Budget & Recommendation Assistant
+## 8. User Interface Design
 
-The project combines budget planning and recommendation features into one simple application.
+The application provides simple web
